@@ -1,12 +1,40 @@
+<?php
+// created by Sipha Khumalo, http://rejuvenate-upholstery.co.za/
+$first_name = $_POST["first_name"];
+$last_name = $_POST["last_name"];
+?>
+
 <html>
+<head>
+<title>Simple PHP Form Example</title>
+</head>
+
 <body>
 
-<form action="server.php" method="post">
-Name: <input type="text" name="name"><br>
-E-mail: <input type="text" name="email"><br>
-Password: <input type="text" name="password">
-<input name="insert" type="submit">
-</form>
+<?php
+if (!isset($_POST['submit']))
+{
+  // display the form
+  ?>
+  <p>
+  <form method="post" action="<?php echo $PHP_SELF;?>">
+  First Name: <input type="text" name="first_name">
+  <br/>Last Name: <input type="text" name="last_name">
+  <br/><input type="submit" value="submit" name="submit">
+  </form>
+  </p>
+
+<?
+}
+else
+{
+  // display the output
+  echo "<p>";
+  echo "First Name: $first_name<br />";
+  echo "Last Name: $last_name<br />";
+  echo "</p>";
+}
+?>
 
 </body>
-</html> 
+</html>
